@@ -19,6 +19,7 @@ const app = createApp(App)
 
 //在全局实例上挂载axios
 app.config.globalProperties.$axios=axios
+//全局挂载事件总线实例
 app.config.globalProperties.$Bus=Mitt
 // app.directive('lazy-load',{
 //     created() {
