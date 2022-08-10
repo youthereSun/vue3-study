@@ -11,6 +11,7 @@ import {lazyPlugin} from "./directives";
 import mitt from "mitt";
 import loading from "./components/loading";
 import sunButton from "./components/myButton";
+import AnimateWarpper from './components/animateWarpper'
 
 //第三方eventBus库
 const Mitt=mitt()
@@ -54,7 +55,7 @@ app.use(store)
 app.use(lazyPlugin)
 //全局装载自定义组件
 app.use(loading)
-app.use(sunButton)
+app.use(sunButton).use(AnimateWarpper)
 
 
 app.mount('#app')

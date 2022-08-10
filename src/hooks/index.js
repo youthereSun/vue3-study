@@ -70,6 +70,8 @@ const useOffset=(options)=>{
     }
 }
 
+
+//使用IntersectionObserver观察所有img元素，进入视口请求资源
 const useLazyloadImg = () => {
     console.log('我执行在setup期间')
     let observer;
