@@ -1,4 +1,4 @@
-import {onMounted,ref} from 'vue'
+import {onMounted,ref,onUnmounted} from 'vue'
 
 //hooks是一个带有生命周期的函数
 //options为传递过来的参数
@@ -69,4 +69,30 @@ const useOffset=(options)=>{
         scrollTop
     }
 }
-export {useToBase64,useCount,useOffset}
+
+const useLazyloadImg = () => {
+    console.log('我执行在setup期间')
+    let observer;
+    onMounted(() => {
+        let imgs = document.getElementsByTagName('img');
+        console.log('useLazyloadImg', imgs);
+        let callback = (entries) => {
+            entries.forEach(v => {
+                const {target, isIntersecting} = v
+                if (isIntersecting) {
+                    target.src = target.getAttribute('lazy_src')
+                    observer.unobserve(target)
+                }
+            })
+        }
+        observer = new IntersectionObserver(callback)
+        Array.from(imgs).forEach(v => {
+            observer.observe(v)
+        })
+    })
+    onUnmounted(() => {
+        //销毁
+        observer.disconnect()
+    })
+}
+export {useToBase64,useCount,useOffset,useLazyloadImg}
