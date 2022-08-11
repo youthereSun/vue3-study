@@ -27,6 +27,13 @@
       <a-button @click="del">del</a-button>
     </a-card>
 
+
+    <a-card title="自定义函数式组件">
+      <a-button @click="showLoadingBar">show loadingBar!!导入方式使用 </a-button>
+      <a-button @click="showLoadingBarGlobal">show loadingBar!!全局挂载使用 </a-button>
+
+    </a-card>
+
     <a-card title="调用全局自定义组件">
       <a-button @click="showLoading">show loading!!</a-button>
       <sun-button @handleClick="$loading.show()"/>
@@ -68,6 +75,7 @@ export default {
 import {reactive, ref, onMounted, getCurrentInstance} from 'vue'
 import {useRoute} from 'vue-router'
 import {SettingOutlined, EditOutlined, EllipsisOutlined} from '@ant-design/icons-vue';
+import loadingBar from "../../../components/loadingBar/index";
 
 const {proxy} = getCurrentInstance()
 const route = useRoute()
@@ -82,13 +90,22 @@ const add = () => {
 const del = () => {
   arr.splice(0, 1)
 }
+const showLoadingBar=()=>{
+  loadingBar.show()
+  //loadingBar.hide()
 
+}
+
+const showLoadingBarGlobal=()=>{
+  proxy.$loadingBar.show()
+}
 const showLoading = () => {
   proxy.$loading.show();
   setTimeout(() => {
     proxy.$loading.hide();
   }, 3000)
 }
+
 
 onMounted(() => {
   const {tag} = route.query;

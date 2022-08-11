@@ -12,6 +12,7 @@ import mitt from "mitt";
 import loading from "./components/loading";
 import sunButton from "./components/myButton";
 import AnimateWarpper from './components/animateWarpper'
+import loadingBar from "./components/loadingBar";
 
 //第三方eventBus库
 const Mitt=mitt()
@@ -21,6 +22,8 @@ const app = createApp(App)
 app.config.globalProperties.$axios=axios
 //全局挂载事件总线实例
 app.config.globalProperties.$Bus=Mitt
+//全局挂载函数组件，loadingBar一般不会挂载在，做演示用
+app.config.globalProperties.$loadingBar=loadingBar
 // app.directive('lazy-load',{
 //     created() {
 //         console.log('created');

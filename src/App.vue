@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <a-spin :spinning="$store.state.showLoading" tip="加载中...">
       <router-view />
-    </a-spin>
   </div>
 </template>
 
@@ -13,8 +11,13 @@ export default {
 }
 </script>
 <script setup>
+import {getCurrentInstance,onMounted} from "vue";
+const {proxy }=getCurrentInstance()
 import {useStore} from 'vuex'
 const store=useStore()
+onMounted(()=>{
+  //window.VUE_PROXY=proxy
+})
 </script>
 
 <style>
