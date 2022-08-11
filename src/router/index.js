@@ -17,6 +17,8 @@ const Page9=() => import('../views/demo/page9/index.vue')
 
 const Page10=() => import('../views/demo/page10/index.vue')
 const Page11=() => import('../views/demo/page11/index.vue')
+const Page12=() => import('../views/demo/page12/index.vue')
+
 
 // 2. 定义路由配置
 const routes = [
@@ -33,6 +35,8 @@ const routes = [
     { path: "/page9",name:"Page9", component: Page9 },
     { path: "/page10",name:"Page10", component: Page10 },
     { path: "/page11",name:"Page11", component: Page11 },
+    { path: "/page12",name:"Page12", component: Page12 },
+
 
 ];
 

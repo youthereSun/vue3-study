@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "barCharts"
+  name: "BarCharts"
 }
 </script>
 <script setup>

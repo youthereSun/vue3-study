@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "pieCharts"
+  name: "PieCharts"
 }
 </script>
 <script setup>

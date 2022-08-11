@@ -77,6 +77,11 @@ let pages=  [
     name:'Page11',
     des:'intersectionObserver',
     path:'/page11'
+  },{
+    key:12,
+    name:'Page12',
+    des:'动态css 和css选择器',
+    path:'/page12'
   }
 ]
 
