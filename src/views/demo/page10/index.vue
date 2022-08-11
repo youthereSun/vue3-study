@@ -28,13 +28,17 @@
     </a-card>
 
 
-    <a-card title="自定义函数式组件">
+    <a-card title="自定义函数式组件loadingBar">
       <a-button @click="showLoadingBar">show loadingBar!!导入方式使用 </a-button>
       <a-button @click="showLoadingBarGlobal">show loadingBar!!全局挂载使用 </a-button>
-
     </a-card>
 
-    <a-card title="调用全局自定义组件">
+    <a-card title="自定义函数式组件Message">
+        <a-button @click="showMessage">默认</a-button>
+      <a-button @click="showMessage1">自定义</a-button>
+    </a-card>
+
+    <a-card title="调用全局自定义loading组件">
       <a-button @click="showLoading">show loading!!</a-button>
       <sun-button @handleClick="$loading.show()"/>
     </a-card>
@@ -76,6 +80,7 @@ import {reactive, ref, onMounted, getCurrentInstance} from 'vue'
 import {useRoute} from 'vue-router'
 import {SettingOutlined, EditOutlined, EllipsisOutlined} from '@ant-design/icons-vue';
 import loadingBar from "../../../components/loadingBar/index";
+import message from '../../../components/message/'
 
 const {proxy} = getCurrentInstance()
 const route = useRoute()
@@ -106,6 +111,21 @@ const showLoading = () => {
   }, 3000)
 }
 
+
+const showMessage=()=>{
+  message.show()
+}
+
+const showMessage1=()=>{
+  let id=new Date().getTime()
+  let option={
+    text:'这是什么鬼！！！'+id,
+    borderColor:'red',
+    iconColor:'blue',
+    closeable:true
+  }
+  message.show(option)
+}
 
 onMounted(() => {
   const {tag} = route.query;

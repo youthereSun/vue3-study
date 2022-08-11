@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory, createWebHistory} from "vue-router"
-import loadingBar from "../components/loadingBar/index";
+import loadingBar from "../components/loadingBar";
 // 1. 定义路由组件， 注意，这里一定要使用 文件的全名（包含文件后缀名）
 import Home from '../views/home/index.vue'
 import Page1 from '../views/demo/page1/page1.vue'

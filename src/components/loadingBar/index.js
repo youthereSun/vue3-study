@@ -7,7 +7,9 @@ const loadingBar={
         if(!vNode){
             console.log('没有vNode')
             vNode = createVNode(LoadingBar)
-            render(vNode,document.body)
+            let barContainer =document.createElement('div')
+            document.body.appendChild(barContainer)
+            render(vNode,barContainer)
             console.log('LoadingBar已经挂载到dom上了')
         }
         vNode.component.exposed.loadBar()
@@ -16,7 +18,8 @@ const loadingBar={
         if(!vNode){
             console.log('没有vNode')
             vNode = createVNode(LoadingBar)
-            render(vNode,document.body)
+            let barContainer =document.createElement('div')
+            render(vNode,barContainer)
             console.log('LoadingBar已经挂载到dom上了')
         }
         vNode.component.exposed.unloadBar()
