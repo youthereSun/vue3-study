@@ -3,10 +3,11 @@ import Loading from './index.vue'
 import {createVNode,render} from 'vue'
 const loading ={
     install(app,option){
+        const {propsData} =option
         console.log('app',app)
         console.log('loading',Loading)
-        //将组件转为vNode对象
-        const vNode=createVNode(Loading)
+        //将组件转为vNode对象,第二个参数将属性配置到组件中
+        const vNode=createVNode(Loading,propsData)
         console.log('vNode',vNode)
         //将虚拟dom通过render方法挂载到真实dom上
         render(vNode,document.body)

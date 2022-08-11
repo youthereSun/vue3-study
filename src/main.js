@@ -53,8 +53,16 @@ app.use(Antd)
 app.use(store)
 //全局装载自定义指令
 app.use(lazyPlugin)
+//配置loading属性 animateType/backgroundColor/animateColor
+const loadingOption={
+    propsData:{
+        animateType:'A1',
+       // backgroundColor:'white',
+        animateColor:'rgba(233, 30, 99,1.0)'
+    }
+}
 //全局装载自定义组件
-app.use(loading)
+app.use(loading,loadingOption)
 app.use(sunButton).use(AnimateWarpper)
 
 
