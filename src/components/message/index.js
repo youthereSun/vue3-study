@@ -29,10 +29,8 @@ const message={
         //messageContainer = document.getElementById('wjyyds-messages-container')
 
         let fragment = document.createDocumentFragment();
-        vNode.mount(fragment)
         messageContainer.appendChild(fragment)
-
-
+        vNode.mount(fragment)
     }
 }
 export default message

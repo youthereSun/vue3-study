@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-      <router-view />
+    <!--   路由默认的插槽 -->
+    <router-view  #default="{route,Component}">
+      <transition enter-active-class="animate__animated animate__slideInLeft" >
+        <component :is="Component" />
+      </transition>
+
+    </router-view>
   </div>
 </template>
 
 <script>
-
+import 'animate.css'
 export default {
   name: 'App',
 }
